@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="http://localhost:8000/authors/edit/<%= author.id %>" method="post">
+  <h1>Crear Autor</h1>
+  <div>
+    <input id="name" required type="text" name="name" placeholder="Nombre..." />
+  </div>
+  <div>
+    <input
+      id="dateOfBirth"
+      required
+      type="date"
+      name="dateOfBirth"
+      placeholder="Nacimiento..."
+    />
+  </div>
+  <div>
+    <input
+      id="dateOfDeath"
+      required
+      type="date"
+      name="dateOfDeath"
+      placeholder="Defunción..."
+    />
+  </div>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+<script>
+  document.getElementById("dateOfBirth").value = "<%= author.dateOfBirth %>";
+  document.getElementById("name").value = "<%= author.name %>";
+  document.getElementById("dateOfDeath").value = "<%= author.dateOfDeath %>";
+</script>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="http://localhost:8000/books" method="post">
+  <h1>Crear Libro</h1>
+  <div>
+    <input required type="text" name="title" placeholder="Titulo..." />
+  </div>
+  <div>
+    <input
+      required
+      type="date"
+      name="yearOfPublication"
+      placeholder="Fecha de publicación"
+    />
+  </div>
+  <div>
+    <textarea id="description" name="description" placeholder="Descripcion...">
+    </textarea>
+  </div>
+  <div>
+    <select id="AuthorId" name="AuthorId">
+      <% for(const author of authors) { %>
+      <option value="<%= author.id %>"><%= author.name %></option>
+      <% } %>
+    </select>
+  </div>
+  <div>
+    <% for(const genre of genres) { %>
+    <div>
+      <input
+        type="checkbox"
+        name="genres"
+        id="<%= genre.id %>"
+        value="<%= genre.id %>"
+      />
+      <label for="<%= genre.id %>"><%= genre.name %></label>
+    </div>
+    <% } %>
+  </div>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+
+<%- include('../partials/footer.ejs') %>

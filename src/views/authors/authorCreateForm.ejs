@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="http://localhost:8000/authors" method="post">
+  <h1>Crear Autor</h1>
+  <div>
+    <input required type="text" name="name" placeholder="Nombre..." />
+  </div>
+  <div>
+    <input required type="date" name="dateOfBirth" placeholder="Nacimiento..." />
+  </div>
+  <div>
+    <input required type="date" name="dateOfDeath" placeholder="Defunción..." />
+  </div>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+
+<%- include('../partials/footer.ejs') %>

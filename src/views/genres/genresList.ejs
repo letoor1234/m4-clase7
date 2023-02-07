@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+<h1>Lista de generos</h1>
+<a href="http://localhost:8000/genres/create">+ Nuevo genero</a>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(const genre of genres) { %>
+
+    <tr>
+      <td><%= genre.id %></td>
+
+      <td><%= genre.name %></td>
+
+      <td>
+        <a href="http://localhost:8000/genres/edit/<%= genres.id %>">
+          Editar
+        </a>
+      </td>
+
+      <td>
+        <form
+          action="http://localhost:8000/genres/<%= genre.id %>"
+          method="delete"
+        >
+          <button type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer.ejs") %>

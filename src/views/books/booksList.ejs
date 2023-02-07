@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Listra de libros</h1>
+<a href="http://localhost:8000/books/create">+ Nuevo libro</a>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titulo</th>
+      <th>Generos</th>
+      <th>Autor</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(const book of books) { %>
+
+    <tr>
+      <td><%= book.id %></td>
+
+      <td><%= book.title %></td>
+
+      <td><%= book.genres.map((genre) => genre.name).join(", ") %></td>
+
+      <td><%= book.Author.name %></td>
+
+      <td>
+        <a href="http://localhost:8000/books/edit/<%= book.id %>"> Editar </a>
+      </td>
+
+      <td>
+        <form
+          action="http://localhost:8000/books/<%= book.id %>"
+          method="delete"
+        >
+          <button type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer.ejs") %>
